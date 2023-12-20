@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Film } from '../models/film.model';
+import { FilmService } from '../film.service';
 
 @Component({
   selector: 'app-films-list',
@@ -6,36 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./films-list.page.scss'],
 })
 export class FilmsListPage implements OnInit {
-  films = [
-    { 
-      id: 1,
-      title: 'Film 1',
-      img: '../../assets/img/noimg.png',
-      param1: 'testParam1',
-      param2: 'testParam2'
-    }, { 
-      id: 2,
-      title: 'Film 2',
-      img: '../../assets/img/noimg.png',
-      param1: 'testParam1',
-      param2: 'testParam2'
-    }, { 
-      id: 3,
-      title: 'Film 3',
-      img: '../../assets/img/noimg.png',
-      param1: 'testParam1',
-      param2: 'testParam2'
-    }, { 
-      id: 4,
-      title: 'Film 4',
-      img: '../../assets/img/noimg.png',
-      param1: 'testParam1',
-      param2: 'testParam2'
-    },
-  ];
-  constructor() { }
+  films!: Array<Film>;
+
+  constructor(
+    private Film: FilmService
+  ) { }
 
   ngOnInit() {
+    this.Film.getAll().subscribe((data: any) => {
+      this.films = data;
+    });
   }
 
 }
