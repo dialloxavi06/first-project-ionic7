@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: FilmsListPage
+  },
+  {
+    path: 'new',
+    loadChildren: () => import('./film-new/film-new.module').then( m => m.FilmNewPageModule)
+  },
+  {
+    path: ':id',
+    loadChildren: () => import('./film/film.module').then( m => m.FilmPageModule)
   }
 ];
 
