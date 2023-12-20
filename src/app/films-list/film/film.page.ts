@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./film.page.scss'],
 })
 export class FilmPage implements OnInit {
-
+  modif: boolean = false;
   constructor() { }
 
   ngOnInit() {
