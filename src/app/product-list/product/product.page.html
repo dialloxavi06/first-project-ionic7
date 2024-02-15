@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="product">{{ product.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="!modif">
+    <ion-img [src]="product.pictureLink" [alt]="product.title" style="width: 200px; height: auto;"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ product.title }}</ion-card-title>
+      <ion-card-subtitle>{{ product.city }} - {{ product.releaseDate }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ product.description }}</p>
+      <p>Prix: {{ product.price | currency }}</p>
+    </ion-card-content>
+    <ion-item>
+      <ion-button slot="end" fill="clear" (click)="setModif()">
+        <ion-icon name="create"></ion-icon> Modifier
+      </ion-button>
+      <ion-button slot="end" fill="clear" (click)="onDelete(product.id)">
+        <ion-icon name="trash"></ion-icon> Supprimer
+      </ion-button>
+    </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="modif">
+    <ion-item>
+      <ion-grid style="text-align: center;">
+        <ion-row>
+          <ion-col>
+            <ion-img [src]="product.pictureLink" style="max-width: 50%; height: auto;"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item>
+      <ion-button expand="block" color="tertiary" [(ngModel)]="product.pictureLink" (click)="addNewPhoto('library')">
+        <ion-icon slot="start" name="image"></ion-icon> Ouvrir la bibliothèque
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" label="Titre" [(ngModel)]="product.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" label="Ville" [(ngModel)]="product.city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" label="Date de sortie" [(ngModel)]="product.releaseDate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="number" label="Prix" [(ngModel)]="product.price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea label="Description" rows="5" [(ngModel)]="product.description"></ion-textarea>
+    </ion-item>
+    <ion-button expand="block" color="primary" (click)="onModif()">Enregistrer les modifications</ion-button>
+  </ion-card>
+</ion-content>

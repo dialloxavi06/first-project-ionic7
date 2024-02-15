@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Liste des Articles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <ion-button expand="block" color="success" routerLink="/product-list/product-new">Vendre un Article</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+ 
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="4" size-lg="3" *ngFor="let product of products">
+            <ion-card button [routerLink]="['/products', product.id]">
+              <img [src]="product.pictureLink" [alt]="product.title">
+              <ion-card-content>
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.description }}</p>
+                <p>Prix: {{ product.price }} €</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

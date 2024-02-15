@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nouveau Produit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item> 
+    <ion-grid style="text-align: center;">
+      <ion-row>
+        <ion-col size="6">
+        <img [src]="product.pictureLink" style="max-width: 50%; height: auto;"/>
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+  <ion-button expand="block" color="tertiary" [(ngModel)]="product.pictureLink" (click)="addNewPhoto('library')">
+    <ion-icon slot="start" name="image"></ion-icon>
+    Ouvrir bibliothéque
+  </ion-button>
+</ion-item>
+  <ion-item>
+    <ion-input type="text" label="Titre" [(ngModel)]="product.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="city" [(ngModel)]="product.city"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="date" label="Date" [(ngModel)]="product.releaseDate"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="price" [(ngModel)]="product.price"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea label="description" rows="20" [(ngModel)]="product.description"></ion-textarea>
+  </ion-item>
+  <p class="text-center">
+    <ion-button (click)="add()">Envoyer</ion-button>
+  </p>
+</ion-content>
