@@ -12,7 +12,6 @@
     <ion-img [src]="product.pictureLink" [alt]="product.title" style="width: 200px; height: auto;"></ion-img>
     <ion-card-header>
       <ion-card-title>{{ product.title }}</ion-card-title>
-      <ion-card-subtitle>{{ product.city }} - {{ product.releaseDate }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <p>{{ product.description }}</p>
@@ -48,9 +47,6 @@
     </ion-item>
     <ion-item>
       <ion-input type="text" label="Ville" [(ngModel)]="product.city"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="text" label="Date de sortie" [(ngModel)]="product.releaseDate"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input type="number" label="Prix" [(ngModel)]="product.price"></ion-input>
