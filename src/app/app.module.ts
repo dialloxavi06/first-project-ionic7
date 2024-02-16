@@ -12,7 +12,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent], 
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
